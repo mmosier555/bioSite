@@ -1,0 +1,270 @@
+/* ==========================================================================
+   bioSite — Nick
+   Megan Mosier — CSD 340
+   Style system built atom-first (color, type, spacing) then molecule-level
+   (nav, hero, cards, quote blocks, footer)
+   ========================================================================== */
+
+/* ---------- ATOMS: color tokens ---------- */
+:root {
+    --charcoal-slate: #33404d;   /* primary dark / body text on light bg */
+    --deep-blue: #1f3350;        /* header / nav background */
+    --walnut-wood: #5c4433;      /* secondary text, borders */
+    --goldenrod: #c9a227;        /* accent / links / hover */
+    --pine-green: #37543f;       /* secondary accent */
+    --warm-cream: #f6f1e7;       /* accent only — sparing use, never large fills */
+  
+    --bg-page: #fbfaf7;
+    --text-body: var(--charcoal-slate);
+    --text-muted: #6b6155;
+  
+    /* ---------- ATOMS: type scale (major third, 1.25) ---------- */
+    --fs-100: 0.8rem;     /* captions, footnotes */
+    --fs-200: 0.9rem;     /* small print, nav */
+    --fs-300: 1rem;       /* body */
+    --fs-400: 1.25rem;    /* lead paragraph, h4 */
+    --fs-500: 1.563rem;   /* h3 */
+    --fs-600: 1.953rem;   /* h2 */
+    --fs-700: 2.441rem;   /* h1 */
+    --fs-800: 3.052rem;   /* hero display */
+  
+    /* ---------- ATOMS: spacing scale ---------- */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 1rem;
+    --space-4: 1.5rem;
+    --space-5: 2.5rem;
+    --space-6: 4rem;
+  }
+  
+  /* ---------- ATOMS: base reset & body ---------- */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    font-family: "Georgia", "Iowan Old Style", serif;
+    font-size: var(--fs-300);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* ---------- ATOMS: headings ---------- */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--charcoal-slate);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+  }
+  
+  h1 { font-size: var(--fs-700); }
+  h2 { font-size: var(--fs-600); }
+  h3 { font-size: var(--fs-500); font-weight: 600; }
+  h4 { font-size: var(--fs-400); font-weight: 600; }
+  h5, h6 { font-size: var(--fs-300); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; }
+  
+  .hero-title {
+    font-size: var(--fs-800);
+    color: var(--warm-cream);
+  }
+  
+  /* ---------- ATOMS: paragraph & line-length ---------- */
+  p {
+    max-width: 65ch; /* line-length control for readability */
+    margin-top: 0;
+    margin-bottom: var(--space-3);
+    color: var(--text-body);
+  }
+  
+  .lead {
+    font-size: var(--fs-400);
+    color: var(--text-muted);
+  }
+  
+  /* ---------- ATOMS: inline elements ---------- */
+  a {
+    color: var(--pine-green);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  
+  a:hover {
+    color: var(--goldenrod);
+  }
+  
+  strong { color: var(--charcoal-slate); font-weight: 700; }
+  em { color: var(--walnut-wood); }
+  
+  /* ---------- ATOMS: images & captions ---------- */
+  figure {
+    margin: 0 0 var(--space-4) 0;
+  }
+  
+  figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #e3ddd0;
+  }
+  
+  figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--fs-100);
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: 0.01em;
+  }
+  
+  /* ---------- ATOMS: blockquote (for song/lyric-adjacent pull quotes) ---------- */
+  blockquote {
+    border-left: 3px solid var(--goldenrod);
+    margin: var(--space-4) 0;
+    padding: var(--space-2) var(--space-4);
+    font-style: italic;
+    color: var(--walnut-wood);
+    max-width: 60ch;
+  }
+  
+  /* ---------- ATOMS: lists ---------- */
+  ul, ol {
+    padding-left: 1.25rem;
+    max-width: 65ch;
+  }
+  
+  li {
+    margin-bottom: var(--space-2);
+  }
+  
+  /* ---------- ATOMS: buttons / tags ---------- */
+  .tag {
+    display: inline-block;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: var(--fs-100);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--pine-green);
+    border: 1px solid var(--pine-green);
+    border-radius: 999px;
+    padding: var(--space-1) var(--space-3);
+    margin: 0 var(--space-2) var(--space-2) 0;
+  }
+  
+  /* ==========================================================================
+     MOLECULES
+     ========================================================================== */
+  
+  /* ---------- Navbar ---------- */
+  .site-header {
+    background-color: var(--deep-blue);
+    padding: var(--space-3) var(--space-5);
+  }
+  
+  .site-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .site-nav .brand {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: var(--fs-400);
+    font-weight: 700;
+    color: var(--warm-cream);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  
+  .site-nav ul {
+    list-style: none;
+    display: flex;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+  }
+  
+  .site-nav a {
+    color: var(--warm-cream);
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: var(--fs-200);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .site-nav a:hover,
+  .site-nav a[aria-current="page"] {
+    color: var(--goldenrod);
+    border-bottom-color: var(--goldenrod);
+  }
+  
+  /* ---------- Hero (landing page) ---------- */
+  .hero {
+    background-color: var(--deep-blue);
+    padding: var(--space-6) var(--space-5);
+    text-align: center;
+  }
+  
+  .hero p.lead {
+    color: var(--warm-cream);
+    opacity: 0.85;
+    max-width: 50ch;
+    margin: 0 auto;
+  }
+  
+  /* ---------- Page container ---------- */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-6) var(--space-5);
+  }
+  
+  section {
+    margin-bottom: var(--space-6);
+  }
+  
+  /* ---------- Card (used for hobby entries, influences, etc.) ---------- */
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #e3ddd0;
+    border-radius: 6px;
+    padding: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+  
+  .card h3 {
+    margin-bottom: var(--space-2);
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-4);
+  }
+  
+  /* ---------- Footer ---------- */
+  .site-footer {
+    background-color: var(--charcoal-slate);
+    color: var(--warm-cream);
+    text-align: center;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--fs-200);
+  }
+  
+  .site-footer a {
+    color: var(--warm-cream);
+  }
+  
+  .site-footer a:hover {
+    color: var(--goldenrod);
+  }
